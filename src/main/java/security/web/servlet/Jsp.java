@@ -9,6 +9,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.HttpJspPage;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
@@ -20,7 +21,7 @@ import security.util.ApplicationException;
  * Mother class for the JSP 
  *
  */
-public abstract class Jsp extends MainServlet {
+public abstract class Jsp extends MainServlet implements HttpJspPage{
 	private static final long serialVersionUID = 1L;
 	
 	public static final Logger log = Logger.getLogger(Jsp.class);
@@ -55,7 +56,7 @@ public abstract class Jsp extends MainServlet {
 	 * Entry point into service.
 	 */
 	public abstract void _jspService(HttpServletRequest request,
-									 HttpServletResponse response) throws ServletException, IOException,ApplicationException;
+									 HttpServletResponse response) throws ServletException, IOException;
 
 	protected void doService(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException,ApplicationException{
